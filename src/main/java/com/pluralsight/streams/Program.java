@@ -60,5 +60,10 @@ public class Program {
         return people;
     }
 
-
+    private static double calculateAverageAge(List<Person> people) {
+        int total = people.stream()
+                .map(person -> person.getAge())
+                .reduce(0, (a, b) -> a + b);
+        return (double) total / people.size();
+    }
 }
