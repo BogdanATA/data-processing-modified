@@ -66,4 +66,18 @@ public class Program {
                 .reduce(0, (a, b) -> a + b);
         return (double) total / people.size();
     }
+
+    private static int findOldestAge(List<Person> people) {
+        return people.stream()
+                .map(person -> person.getAge())
+                .max((a, b) -> a.compareTo(b))
+                .orElse(0);
+    }
+
+    private static int findYoungestAge(List<Person> people) {
+        return people.stream()
+                .map(person -> person.getAge())
+                .min((a, b) -> a.compareTo(b))
+                .orElse(0);
+    }
 }
